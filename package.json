@@ -6,16 +6,14 @@
     ".": {
       "import": "./dist/index-es.js",
       "require": "./dist/index-umd.js"
-    },
-    "./nuxt": {
-      "import": "./nuxt/index.js",
-      "require": "./nuxt/index.js"
     }
   },
-  "typings": "./dist/components/DatePicker.vue.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "rollup -c",
+    "build:lib": "rollup -c",
+    "build:dts": "vue-tsc -d --emitDeclarationOnly src/components/DatePicker.vue --outFile dist/index.d.ts > /dev/null",
+    "build": "rm -rf dist && yarn build:lib && yarn build:dts",
     "test": "cypress run-ct",
     "test:open": "cypress open-ct",
     "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",

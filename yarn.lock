@@ -797,6 +797,11 @@ builtin-modules@^3.1.0:
   resolved "https://registry.npmjs.org/builtin-modules/-/builtin-modules-3.2.0.tgz"
   integrity sha512-lGzLKcioL90C7wMczpkY0n/oART3MbBa8R9OFGE1rJxoVI86u4WAGfEk8Wjv10eKSyTHVGkSo3bvBylCEtk7LA==
 
+cac@^6.7.2:
+  version "6.7.11"
+  resolved "https://registry.yarnpkg.com/cac/-/cac-6.7.11.tgz#8828e0874e578b60d839a7591567d7d5bdc7cbce"
+  integrity sha512-m4xrA2MKfid6uDV2j2+0mXrtPGxlvAW0y+7Gnn2P8WVMSG+4e4tcoYX++94ZPblPfpBccJ5e7HvKdghlX5yiDA==
+
 cachedir@2.2.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/cachedir/-/cachedir-2.2.0.tgz"
@@ -1811,7 +1816,7 @@ fast-diff@^1.1.2:
   resolved "https://registry.npmjs.org/fast-diff/-/fast-diff-1.2.0.tgz"
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
-fast-glob@^3.1.1:
+fast-glob@^3.1.1, fast-glob@^3.2.5:
   version "3.2.7"
   resolved "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.7.tgz"
   integrity sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==
@@ -4317,6 +4322,15 @@ vscode-vue-languageservice@0.28.10:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-pug-languageservice "0.28.10"
     vscode-typescript-languageservice "0.28.10"
+
+vue-dts-gen@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/vue-dts-gen/-/vue-dts-gen-0.3.0.tgz#7e661c437bf87605b75f64421d8f5e43e5668a6c"
+  integrity sha512-PXSqyEfFgcqjuioFYbLQtTHZ2+UCCY94uzo98/cQE6Vun/8sjD1Bo22R5E1xag2v2+0/eUl+SuDzldJR3U1AHQ==
+  dependencies:
+    cac "^6.7.2"
+    fast-glob "^3.2.5"
+    resolve-from "^5.0.0"
 
 vue-eslint-parser@^8.0.0, vue-eslint-parser@^8.0.1:
   version "8.0.1"

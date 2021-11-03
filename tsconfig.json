@@ -11,7 +11,7 @@
     "lib": ["esnext", "dom"],
     "types": ["cypress"],
     "declaration": true,
-    "declarationDir": "dist/src"
+    "declarationDir": "dist"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"]
 }

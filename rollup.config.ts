@@ -12,7 +12,13 @@ export default {
     vue({
       preprocessStyles: true,
     }),
-    typescript(),
+    typescript({
+      tsconfigOverride: {
+        compilerOptions: {
+          declaration: false,
+        },
+      },
+    }),
     commonjs(),
     resolve({
       dedupe: ['vue'],
