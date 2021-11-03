@@ -1,6 +1,6 @@
 {
   "name": "@alireza-ab/vue3-persian-datepicker",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "files": [
     "dist/*"
   ],
@@ -12,11 +12,11 @@
       "require": "./dist/index-umd.js"
     }
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/DatePicker.vue.d.ts",
   "scripts": {
     "dev": "vite",
     "build:lib": "rollup -c",
-    "build:dts": "vue-tsc -d --emitDeclarationOnly src/components/DatePicker.vue --outFile dist/index.d.ts > /dev/null",
+    "build:dts": "vue-tsc -d --emitDeclarationOnly src/components/DatePicker.vue --outDir dist > /dev/null",
     "build": "rm -rf dist && yarn build:lib && yarn build:dts",
     "test": "cypress run-ct",
     "test:open": "cypress open-ct",
