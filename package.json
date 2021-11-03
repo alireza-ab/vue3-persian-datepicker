@@ -1,5 +1,9 @@
 {
+  "name": "@alireza-ab/vue3-persian-datepicker",
   "version": "0.0.0",
+  "files": [
+    "dist/*"
+  ],
   "main": "./dist/index-umd.js",
   "module": "./dist/index-es.js",
   "exports": {
