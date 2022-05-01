@@ -24,19 +24,19 @@
             { 'pdp-pointer': ['all', 'icon'].includes(clickOn) },
             { 'pdp-inside': iconInside },
           ]"
-          @click="showPicker('icon', input)"
+          @click="showPicker('icon', index)"
         >
           <slot name="icon">
             <PDPIcon :icon="type" width="23" height="23"></PDPIcon>
           </slot>
         </div>
         <input
-          :ref="input"
+          ref="inputs"
           v-model="displayValue[index]"
           type="text"
           autocomplete="off"
           v-bind="attrs[input]"
-          @focus="showPicker('input', input)"
+          @focus="showPicker('input', index)"
           @keydown="selectWithArrow" /><button
           v-if="clearable"
           :key="`clear-${input}`"
@@ -1255,10 +1255,11 @@
           return false;
         }
       },
-      showPicker(el: 'icon' | 'input', inputName: Inputs): void {
+      showPicker(el: 'icon' | 'input', index: 0 | 1): void {
         if (this.clickOn == 'all' || this.clickOn == el) {
+          const inputName = this.inputs[index];
           if (this.dualInput) this.inputName = inputName;
-          (this.$refs[inputName] as HTMLElement).focus();
+          (this.$refs.inputs[index] as HTMLElement).focus();
           this.showDatePicker = true;
           if (!this.modal) {
             this.$nextTick(() => {
@@ -1464,7 +1465,7 @@
           right: false,
         };
         this.$nextTick(() => {
-          const input = this.$refs.firstInput as HTMLInputElement;
+          const input = this.$refs.inputs[0] as HTMLInputElement;
           const inputOffset =
             input.offsetHeight + input.getBoundingClientRect().top;
           const picker = this.$refs.pdpPicker as HTMLElement;
