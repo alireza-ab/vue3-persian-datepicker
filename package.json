@@ -11,6 +11,10 @@
     ".": {
       "import": "./dist/index-es.js",
       "require": "./dist/index-umd.js"
+    },
+    "./nuxt": {
+      "import": "./nuxt/index.mjs",
+      "require": "./nuxt/index.cjs"
     }
   },
   "types": "./dist/DatePicker.vue.d.ts",
@@ -18,7 +22,8 @@
     "dev": "vite",
     "build:lib": "rollup -c",
     "build:dts": "vue-tsc -d --emitDeclarationOnly src/components/DatePicker.vue --outDir dist > /dev/null",
-    "build": "rm -rf dist && yarn build:lib && yarn build:dts",
+    "build:nuxt": "unbuild",
+    "build": "rm -rf dist nuxt && yarn build:lib && yarn build:dts && yarn build:nuxt",
     "test": "cypress run-ct",
     "test:open": "cypress open-ct",
     "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
@@ -59,7 +64,8 @@
     "nuxt persian range datepicker"
   ],
   "dependencies": {
-    "@alireza-ab/persian-date": "^2.6.1"
+    "@alireza-ab/persian-date": "^2.6.1",
+    "@nuxt/kit": "^3.0.0-rc.1"
   },
   "devDependencies": {
     "@cypress/vite-dev-server": "^2.2.2",
@@ -67,9 +73,9 @@
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
     "@vitejs/plugin-vue": "^2.3.1",
+    "@vue/compiler-sfc": "^3.2.33",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^10.0.0",
-    "@vue/compiler-sfc": "^3.2.33",
     "commitizen": "^4.2.4",
     "cypress": "^9.6.0",
     "cz-conventional-changelog": "^3.3.0",
@@ -87,6 +93,7 @@
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "typescript": "^4.6.4",
+    "unbuild": "^0.7.4",
     "vite": "^2.9.6",
     "vue": "^3.2.33",
     "vue-tsc": "^0.34.11",
