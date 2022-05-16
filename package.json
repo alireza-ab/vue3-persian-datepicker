@@ -21,7 +21,7 @@
   "scripts": {
     "dev": "vite",
     "build:lib": "rollup -c",
-    "build:dts": "vue-tsc -d --emitDeclarationOnly src/components/DatePicker.vue --outDir dist > /dev/null",
+    "build:dts": "vue-tsc -d --emitDeclarationOnly src/components/DatePicker.vue --outDir dist",
     "build:nuxt": "unbuild",
     "build": "rm -rf dist nuxt && yarn build:lib && yarn build:dts && yarn build:nuxt",
     "test": "cypress run-ct",
@@ -65,21 +65,21 @@
   ],
   "dependencies": {
     "@alireza-ab/persian-date": "^2.6.1",
-    "@nuxt/kit": "^3.0.0-rc.1"
+    "@nuxt/kit": "^3.0.0-rc.3"
   },
   "devDependencies": {
-    "@cypress/vite-dev-server": "^2.2.2",
-    "@cypress/vue": "^3.1.1",
-    "@typescript-eslint/eslint-plugin": "^5.21.0",
-    "@typescript-eslint/parser": "^5.21.0",
-    "@vitejs/plugin-vue": "^2.3.1",
+    "@cypress/vite-dev-server": "^2.2.3",
+    "@cypress/vue": "^3.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "@vitejs/plugin-vue": "^2.3.3",
     "@vue/compiler-sfc": "^3.2.33",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "commitizen": "^4.2.4",
-    "cypress": "^9.6.0",
+    "cypress": "^9.6.1",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.14.0",
+    "eslint": "^8.15.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.7.1",
     "prettier": "^2.6.2",
@@ -94,9 +94,9 @@
     "sass-loader": "^12.6.0",
     "typescript": "^4.6.4",
     "unbuild": "^0.7.4",
-    "vite": "^2.9.6",
+    "vite": "^2.9.9",
     "vue": "^3.2.33",
-    "vue-tsc": "^0.34.11",
+    "vue-tsc": "^0.34.13",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
