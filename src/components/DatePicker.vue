@@ -657,7 +657,7 @@
         documentWidth: isClient ? window.innerWidth : Infinity,
         langs: Core.langs,
         currentLocale: this.locale.split(',')[0],
-        interval: null as number | null,
+        interval: null as NodeJS.Timer | null,
       };
     },
     computed: {
@@ -1259,7 +1259,7 @@
         if (this.clickOn == 'all' || this.clickOn == el) {
           const inputName = this.inputs[index];
           if (this.dualInput) this.inputName = inputName;
-          (this.$refs.inputs[index] as HTMLElement).focus();
+          (this.$refs.inputs as HTMLElement[])[index].focus();
           this.showDatePicker = true;
           if (!this.modal) {
             this.$nextTick(() => {
@@ -1307,7 +1307,7 @@
               .addDay(numberOfDay);
             if (!this.checkDate(nextElementValue, 'date'))
               return focusedDay.classList.add('hover');
-            nextElementValue = nextElementValue.date();
+            nextElementValue = (nextElementValue as PersianDate).date();
             column = focusedMonth.diff(firstColumnMonth, 'month');
             if (column < 0) {
               this.onDisplay!.subMonth(this.columnCount);
@@ -1465,7 +1465,7 @@
           right: false,
         };
         this.$nextTick(() => {
-          const input = this.$refs.inputs[0] as HTMLInputElement;
+          const input = (this.$refs.inputs as HTMLElement[])[0];
           const inputOffset =
             input.offsetHeight + input.getBoundingClientRect().top;
           const picker = this.$refs.pdpPicker as HTMLElement;

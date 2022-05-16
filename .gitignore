@@ -26,3 +26,4 @@ cypress/screenshots
 
 # Dist files
 dist
+nuxt
