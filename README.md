@@ -25,6 +25,12 @@ For full documentation and examples, visit [https://alireza-ab.ir/datepicker](ht
 ### Install
 
 ```shell
+yarn add @alireza-ab/vue3-persian-datepicker
+```
+
+or
+
+```shell
 npm i @alireza-ab/vue3-persian-datepicker
 ```
 
@@ -39,7 +45,7 @@ Vue.createApp({
 ```
 
 ```html
-<DatePicker></DatePicker>
+<DatePicker />
 ```
 
 ## License
