@@ -20,10 +20,7 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-# Cypress additional files
-cypress/videos
-cypress/screenshots
 
 # Dist files
-dist
-nuxt
+/dist
+/nuxt
