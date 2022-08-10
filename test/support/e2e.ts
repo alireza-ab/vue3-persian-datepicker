@@ -17,19 +17,25 @@ import { Obj } from '../../src/components/utils/modules/types';
 import { mount } from '@cypress/vue';
 import Test from './Test.vue';
 
-declare namespace Cypress {
-  interface Chainable {
-    changeProps(prop: Obj, value: null, replace?: boolean): void;
-    changeProps(prop: string, value: unknown, replace?: boolean): void;
-    changeSlots(slot: Obj, value: null, replace?: boolean): void;
-    changeSlots(slot: string, value: unknown, replace?: boolean): void;
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      changeProps(prop: Obj, value: null, replace?: boolean): void;
+      changeProps(prop: string, value: unknown, replace?: boolean): void;
+      changeSlots(slot: Obj, value: null, replace?: boolean): void;
+      changeSlots(slot: string, value: unknown, replace?: boolean): void;
 
-    selectDate(): void;
-    selectRangeDate(): void;
-    selectTime(hour?: number, minute?: number, child?: 'first' | 'last'): void;
+      selectDate(): void;
+      selectRangeDate(): void;
+      selectTime(
+        hour?: number,
+        minute?: number,
+        child?: 'first' | 'last'
+      ): void;
 
-    getProps(): Obj;
-    getSlots(): Obj;
+      getProps(): Obj;
+      getSlots(): Obj;
+    }
   }
 }
 

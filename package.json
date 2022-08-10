@@ -24,8 +24,8 @@
     "build:dts": "vue-tsc -d --emitDeclarationOnly src/components/DatePicker.vue --outDir dist",
     "build:nuxt": "unbuild",
     "build": "rm -rf dist nuxt && yarn build:lib && yarn build:dts && yarn build:nuxt",
-    "test": "cypress run-ct",
-    "test:open": "cypress open-ct",
+    "test": "cypress run --component",
+    "test:open": "cypress open --component",
     "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
     "pretty": "prettier -w -u .",
     "cz": "cz"
