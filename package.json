@@ -1,10 +1,11 @@
 {
   "name": "@alireza-ab/vue3-persian-datepicker",
   "description": "A datepicker component for select date (vue 3)",
-  "version": "1.0.0-beta",
+  "version": "1.0.1",
   "files": [
     "dist/*",
-    "nuxt/*"
+    "nuxt/*",
+    "src/*"
   ],
   "main": "./dist/index-umd.js",
   "module": "./dist/index-es.js",
