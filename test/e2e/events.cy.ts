@@ -22,9 +22,13 @@ const closeEvent = () => {
   cy.get('.pdp-overlay').click({ force: true });
   cy.get('.status').should('contain.text', 'close');
 };
+const clearEvent = () => {
+  cy.get('.pdp-clear').click();
+  cy.get('.status').should('contain.text', 'clear');
+};
 
 before(() => {
-  cy.changeProps(null, null, true);
+  cy.changeProps('clearable', true, true);
   cy.changeSlots();
 });
 
@@ -38,6 +42,7 @@ describe('date type', () => {
   it('input', inputEvent);
   it('open', openEvent);
   it('close', closeEvent);
+  it('clear', clearEvent);
   it('select & submit', () => {
     cy.get('.pdp-input').type('1399/06/01{enter}');
     cy.get('.status').should('contain.text', 'select:1399/06/01');
@@ -58,6 +63,7 @@ describe('time type', () => {
   it('input', inputEvent);
   it('open', openEvent);
   it('close', closeEvent);
+  it('clear', clearEvent);
   it('select & submit', () => {
     cy.get('.pdp-input').type('15:12{enter}');
     cy.get('.status').should('contain.text', 'select:15:12');
@@ -78,6 +84,7 @@ describe('datetime type', () => {
   it('input', inputEvent);
   it('open', openEvent);
   it('close', closeEvent);
+  it('clear', clearEvent);
   it('select & submit', () => {
     cy.get('.pdp-input').type('1399/06/01 20:18{enter}');
     cy.get('.status').should('contain.text', 'select:1399/06/01 20:18');

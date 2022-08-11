@@ -34,6 +34,9 @@
   const close = () => {
     status.value += 'close';
   };
+  const clear = () => {
+    status.value += 'clear';
+  };
   const focus = (e: Event, inputNumber: number) => {
     e.preventDefault();
     status.value += 'focus:' + inputNumber;
@@ -78,6 +81,7 @@
       @close="close"
       @blur="blur"
       @open="open"
+      @clear="clear"
       @select="select"
       @submit="submit"
     >
