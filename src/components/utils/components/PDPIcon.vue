@@ -1,3 +1,8 @@
+<script lang="ts">
+  export default {
+    inheritAttrs: false,
+  };
+</script>
 <script lang="ts" setup>
   import { PropType, toRefs } from 'vue';
 
@@ -17,6 +22,7 @@
     viewBox="0 0 512 512"
     width="1rem"
     xmlns="http://www.w3.org/2000/svg"
+    v-bind="$attrs"
   >
     <metadata>Clear icon</metadata>
     <path
@@ -28,6 +34,7 @@
     version="1.1"
     viewBox="20.711000442504883 19.33300018310547 51.29999542236328 53.48200225830078"
     xmlns="http://www.w3.org/2000/svg"
+    v-bind="$attrs"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <metadata>Calendar icon</metadata>
@@ -59,6 +66,7 @@
     v-else-if="icon === 'datetime'"
     xmlns:svg="http://www.w3.org/2000/svg"
     xmlns="http://www.w3.org/2000/svg"
+    v-bind="$attrs"
     viewBox="7.146755218505859 47.93895721435547 195.70648193359375 201.1220703125"
     version="1.1"
   >
@@ -128,6 +136,7 @@
   <svg
     v-else-if="icon === 'time'"
     xmlns="http://www.w3.org/2000/svg"
+    v-bind="$attrs"
     fill-rule="evenodd"
     clip-rule="evenodd"
     viewBox="0 0 24 24"
