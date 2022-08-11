@@ -1,12 +1,19 @@
-import { defineNuxtModule, createResolver, installModule } from '@nuxt/kit';
+import { defineNuxtModule, createResolver, addAutoImportDir } from '@nuxt/kit';
 
-export default defineNuxtModule({
+export interface DatePickerNuxtOptions {
+  PersianDate?: boolean;
+}
+
+export default defineNuxtModule<DatePickerNuxtOptions>({
   meta: {
     name: '@alireza-ab/vue3-persian-datepicker',
     configKey: 'datepicker',
     compatibility: {
       nuxt: '^3.0.0',
     },
+  },
+  defaults: {
+    PersianDate: false,
   },
   setup(options, nuxt) {
     const { include } = nuxt.options.vite.optimizeDeps!;
@@ -15,7 +22,7 @@ export default defineNuxtModule({
       '@alireza-ab/persian-date',
     ];
 
-    if (options.PersianDate) installModule('@alireza-ab/persian-date');
+    if (options.PersianDate) addAutoImportDir('../src/nuxt/composable');
   },
   hooks: {
     'components:dirs': (dirs) => {
@@ -28,3 +35,12 @@ export default defineNuxtModule({
     },
   },
 });
+
+declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    datepicker?: DatePickerNuxtOptions;
+  }
+  interface NuxtOptions {
+    datepicker?: DatePickerNuxtOptions;
+  }
+}

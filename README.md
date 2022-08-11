@@ -10,6 +10,7 @@ If you want to use this component with vue2, visit [vue-persian-datepicker](http
 
 ## Features
 
+- **nuxt** support
 - **single and range selection**
 - select **date** and **time**
 - select with **keyboard**
