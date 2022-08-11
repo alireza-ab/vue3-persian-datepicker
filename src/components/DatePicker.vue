@@ -638,7 +638,7 @@
         default: false,
       },
     },
-    emits: ['open', 'close', 'select', 'submit', 'update:modelValue'],
+    emits: ['open', 'close', 'select', 'submit', 'clear', 'update:modelValue'],
     data() {
       return {
         core: new PersianDate(),
@@ -727,7 +727,7 @@
         return column;
       },
       monthDays(): MonthDays[][] {
-        let months: MonthDays[][] = [];
+        const months: MonthDays[][] = [];
         for (let i = 0; i < this.columnCount; i++) {
           let emptyCells;
           const selectedYear = this.onDisplay!.clone().addMonth(i).year();
@@ -740,7 +740,7 @@
             selectedMonth
           );
           const numberOfWeek = Math.ceil((daysOfMonthNumber + emptyCells) / 7);
-          let month: MonthDays[] = [];
+          const month: MonthDays[] = [];
           let showDay = 1;
           for (let week = 0; week < numberOfWeek; week++) {
             month[week] = [];
@@ -1169,7 +1169,7 @@
         this.onDisplay = this.core.now().clone();
         if (this.type.includes('time') && this.selectedDates.length) {
           const lastIndex = this.selectedDates.length - 1;
-          let time = this.selectedDates[lastIndex];
+          const time = this.selectedDates[lastIndex];
           time.time(this.onDisplay as PersianDate);
           if (this.selectedTimes[lastIndex]) {
             this.selectedTimes[lastIndex] = time.clone();
@@ -1301,7 +1301,7 @@
             let column = this.getColumn(focusedDay);
             focusedDay.classList.remove('hover');
             const firstColumnMonth = this.onDisplay!.toString();
-            let focusedMonth = this.onDisplay!.clone().addMonth(column);
+            const focusedMonth = this.onDisplay!.clone().addMonth(column);
             let nextElementValue: PersianDate | number = focusedMonth
               .date(focusedDay.innerText)
               .addDay(numberOfDay);
@@ -1383,7 +1383,7 @@
         });
 
         let column = this.getColumn(target);
-        let hoveredDate = this.onDisplay!.clone()
+        const hoveredDate = this.onDisplay!.clone()
           .startOf('date')
           .addMonth(column)
           .date(target.innerText);
@@ -1499,6 +1499,7 @@
         const inputIndex = inputName === 'firstInput' ? 0 : 1;
 
         this.displayValue[inputIndex] = '';
+        this.$emit('clear');
         if (this.dualInput) {
           const values = this.$attrs.value;
           if (values && Array.isArray(values))
