@@ -1588,6 +1588,7 @@
       setDate(dates: string | string[]) {
         if (!dates) return;
         if (this.mode == 'single' && typeof dates === 'string') dates = [dates];
+        this.selectedDates = [];
         (dates as string[]).some((d, index) => {
           const date = this.core
             .clone()

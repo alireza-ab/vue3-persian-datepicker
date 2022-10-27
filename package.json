@@ -1,7 +1,7 @@
 {
   "name": "@alireza-ab/vue3-persian-datepicker",
   "description": "A datepicker component for select date (vue 3)",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "files": [
     "dist/*",
     "nuxt/*",
@@ -67,7 +67,7 @@
   ],
   "dependencies": {
     "@alireza-ab/persian-date": "^2.6.2",
-    "@nuxt/kit": "^3.0.0-rc.6"
+    "@nuxt/kit": "^3.0.0-rc.12"
   },
   "devDependencies": {
     "@cypress/vue": "^4.0.0",
