@@ -1,7 +1,7 @@
 {
   "name": "@alireza-ab/vue3-persian-datepicker",
   "description": "A datepicker component for select date (vue 3)",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "files": [
     "dist/*",
     "src/*"
