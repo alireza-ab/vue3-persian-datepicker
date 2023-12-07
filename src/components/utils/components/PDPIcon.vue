@@ -4,7 +4,7 @@
   };
 </script>
 <script lang="ts" setup>
-  import { PropType, toRefs } from 'vue';
+  import { type PropType, toRefs } from 'vue';
 
   const props = defineProps({
     icon: {

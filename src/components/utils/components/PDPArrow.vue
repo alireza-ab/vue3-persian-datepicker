@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { PropType, computed, toRefs } from 'vue';
+  import { type PropType, computed, toRefs } from 'vue';
 
   type Direction = 'up' | 'down' | 'right' | 'left';
 

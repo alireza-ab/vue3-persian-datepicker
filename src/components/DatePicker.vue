@@ -335,8 +335,8 @@
               selected: !dates.some(
                 (date, i) =>
                   !date.isSame(
-                    selectedDates[i] && selectedDates[i].toString('datetime')
-                  )
+                    selectedDates[i] && selectedDates[i].toString('datetime'),
+                  ),
               ),
             }"
             @click="selectShorcut(dates)"
@@ -357,10 +357,10 @@
   //TODO: refactor and write comment --> pay a high attention
 
   // ************************ Core ************************
-  import { defineComponent, PropType } from 'vue';
+  import { defineComponent, type PropType } from 'vue';
   import { PersianDate, Core } from './utils/modules/core';
   // ************************ Types ************************
-  import {
+  import type {
     Obj,
     Attrs,
     Langs,
@@ -602,7 +602,7 @@
         >,
         validator: (val: string) =>
           ['blue', 'red', 'pink', 'orange', 'green', 'purple', 'gray'].includes(
-            val
+            val,
           ),
       },
 
@@ -657,7 +657,7 @@
         documentWidth: isClient ? window.innerWidth : Infinity,
         langs: Core.langs,
         currentLocale: this.locale.split(',')[0],
-        interval: null as NodeJS.Timer | null,
+        interval: null as NodeJS.Timeout | null,
       };
     },
     computed: {
@@ -675,8 +675,9 @@
         };
         for (const key in this.$attrs) {
           try {
+            // @ts-expect-error type
             const [, group, attr] = key.match(
-              /(div|label|alt|picker|firstInput|secondInput)-(.*)/
+              /(div|label|alt|picker|firstInput|secondInput)-(.*)/,
             ) as [void, keyof Attrs, string];
             attrs[group][attr] = this.$attrs[key];
           } catch {
@@ -721,7 +722,7 @@
           const scale = column / (this.mode == 'single' ? 1 : 2);
           (this.$refs.root as HTMLElement).style.setProperty(
             '--time-scale',
-            (scale > 1 ? scale : 1) + ''
+            (scale > 1 ? scale : 1) + '',
           );
         }
         return column;
@@ -737,7 +738,7 @@
             .toString('?d');
           let daysOfMonthNumber = this.onDisplay!.getDaysInMonth(
             selectedYear,
-            selectedMonth
+            selectedMonth,
           );
           const numberOfWeek = Math.ceil((daysOfMonthNumber + emptyCells) / 7);
           const month: MonthDays[] = [];
@@ -758,14 +759,14 @@
                     this.selectedDates[0].isSame(
                       selectedYear,
                       selectedMonth,
-                      showDay
+                      showDay,
                     ),
                   endRange:
                     this.selectedDates[1] &&
                     this.selectedDates[1].isSame(
                       selectedYear,
                       selectedMonth,
-                      showDay
+                      showDay,
                     ),
                   inRange:
                     this.selectedDates.length == 2 &&
@@ -774,16 +775,16 @@
                       .parse(selectedYear, selectedMonth, showDay)
                       .isBetween(
                         ...(this.selectedDates.map((date) =>
-                          date.toString()
-                        ) as [string, string])
+                          date.toString(),
+                        ) as [string, string]),
                       ),
                   disabled:
                     !this.checkDate(
                       this.onDisplay!.clone().addMonth(i).date(showDay),
-                      'date'
+                      'date',
                     ) ||
                     this.isInDisable(
-                      this.onDisplay!.clone().addMonth(i).date(showDay)
+                      this.onDisplay!.clone().addMonth(i).date(showDay),
                     ),
                   today: this.core
                     .clone()
@@ -806,7 +807,7 @@
             selected: this.onDisplay!.month() == i,
             disabled: !this.checkDate(
               this.onDisplay!.clone().month(i),
-              'month'
+              'month',
             ),
           };
         }
@@ -874,7 +875,7 @@
             ? this.validate(dates[0], part)
             : dates.some((d) => this.validate(d, part)) &&
                 !this.isDisableBetween(
-                  ...(dates as [PersianDate, PersianDate])
+                  ...(dates as [PersianDate, PersianDate]),
                 );
         };
         const setShortcut = (obj: Shortcuts, fromProps = false) => {
@@ -883,7 +884,7 @@
               ? obj[phrase].map((date: PersianDate) =>
                   part == 'date'
                     ? d.clone().fromJalali(date)
-                    : d.clone().time(date)
+                    : d.clone().time(date),
                 )
               : obj[phrase];
             if (checkDate(dates)) {
@@ -900,8 +901,8 @@
             Core.getShortcuts(
               d,
               `${part}-${this.mode}`,
-              this.lang.translations
-            )!
+              this.lang.translations,
+            )!,
           );
         } else {
           setShortcut(this.shortcut, true);
@@ -1013,7 +1014,7 @@
             this.$nextTick(() => {
               const selectedYearTop = (
                 (this.$refs.pdpSelectYear as HTMLElement).querySelector(
-                  'li.selected'
+                  'li.selected',
                 ) as HTMLLIElement
               ).offsetTop;
               (this.$refs.pdpSelectYear as HTMLElement).scroll({
@@ -1091,7 +1092,7 @@
         } else if (this.mode == 'range' && this.selectedDates.length == 1) {
           isValid = !this.isDisableBetween(
             this.selectedDates[0] as PersianDate,
-            date
+            date,
           );
           if (!isValid) {
             return -2;
@@ -1105,7 +1106,7 @@
         } else if (this.mode == 'range') {
           (this.$refs.pdpMain as HTMLElement).addEventListener(
             'mouseover',
-            this.selectInRangeDate
+            this.selectInRangeDate,
           );
           if (this.selectedDates.length === 0) {
             this.selectedDates[0] = date;
@@ -1129,7 +1130,7 @@
           if (this.selectedDates.length == 2) {
             (this.$refs.pdpMain as HTMLElement).removeEventListener(
               'mouseover',
-              this.selectInRangeDate
+              this.selectInRangeDate,
             );
           }
         }
@@ -1210,10 +1211,10 @@
             break;
           case 'time':
             from = this.fromDate!.toString(
-              this.type.includes('time') ? 'datetime' : 'date'
+              this.type.includes('time') ? 'datetime' : 'date',
             );
             to = this.toDate!.toString(
-              this.type.includes('time') ? 'datetime' : 'date'
+              this.type.includes('time') ? 'datetime' : 'date',
             );
             break;
         }
@@ -1293,7 +1294,7 @@
             document.querySelectorAll('.pdp .pdp-day.hover');
           if (!focusedDay.length) {
             focusedDay = document.querySelectorAll(
-              '.pdp .pdp-day.start-range,.pdp .pdp-day.end-range'
+              '.pdp .pdp-day.start-range,.pdp .pdp-day.end-range',
             );
           }
           focusedDay = focusedDay[focusedDay.length - 1];
@@ -1318,17 +1319,17 @@
             }
             await this.$nextTick();
             focusedDay = document.querySelector(
-              `.pdp .pdp-main .pdp-column[data-column='${column}'] .pdp-day[value='${nextElementValue}']`
+              `.pdp .pdp-main .pdp-column[data-column='${column}'] .pdp-day[value='${nextElementValue}']`,
             ) as HTMLElement;
             focusedDay.classList.add('hover');
           } else {
             focusedDay = document.querySelector(
-              '.pdp .pdp-day:not(.empty):not(.disabled)'
+              '.pdp .pdp-day:not(.empty):not(.disabled)',
             ) as HTMLElement;
             if (focusedDay) focusedDay.classList.add('hover');
             else {
               focusedDay = document.querySelector(
-                `.pdp .pdp-main .pdp-column[data-column="0"] .pdp-day[value="${this.fromDate!.date()}"]`
+                `.pdp .pdp-main .pdp-column[data-column="0"] .pdp-day[value="${this.fromDate!.date()}"]`,
               ) as HTMLElement;
               focusedDay.classList.add('hover');
             }
@@ -1340,14 +1341,14 @@
           // 13 is key code of Enter key
           e.preventDefault();
           const focusedDay = document.querySelector(
-            '.pdp .pdp-day.hover'
+            '.pdp .pdp-day.hover',
           ) as HTMLElement;
           if (focusedDay) {
             this.selectDate(
               this.onDisplay!.clone()
                 .addMonth(this.getColumn(focusedDay) || 0)
                 .date(focusedDay.innerText),
-              'date'
+              'date',
             );
           } else {
             let onDisplay;
@@ -1365,7 +1366,7 @@
               if (this.selectDate(onDisplay, 'time') === 0) {
                 const diff = onDisplay.diff(
                   this.onDisplay as PersianDate,
-                  'month'
+                  'month',
                 );
                 if (diff < 0 || diff >= this.columnCount)
                   this.onDisplay = onDisplay.clone();
@@ -1375,6 +1376,7 @@
           }
         }
       },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       selectInRangeDate(e: any): void {
         const target = e.target;
         if (!target.classList.contains('pdp-day')) return;
@@ -1390,14 +1392,14 @@
         const selectedDate = this.selectedDates[0].clone().startOf('date');
         const number = hoveredDate.isAfter(selectedDate) ? 1 : -1;
         const selectedDateDOM = document.querySelector(
-          '.pdp-day.start-range,.pdp-day.end-range'
+          '.pdp-day.start-range,.pdp-day.end-range',
         ) as HTMLElement;
         if (selectedDateDOM) {
           column = +this.getColumn(selectedDateDOM);
           selectedDateDOM.classList.replace(
             ...((hoveredDate.isBefore(selectedDate)
               ? ['start-range', 'end-range']
-              : ['end-range', 'start-range']) as [string, string])
+              : ['end-range', 'start-range']) as [string, string]),
           );
         } else {
           selectedDate.parse(this.onDisplay as PersianDate);
@@ -1425,7 +1427,7 @@
           ) {
             document
               .querySelector(
-                `.pdp-column[data-column='${column}'] .pdp-day[value='${selectedDate.date()}']`
+                `.pdp-column[data-column='${column}'] .pdp-day[value='${selectedDate.date()}']`,
               )!
               .classList.add('in-range');
           } else {
@@ -1442,7 +1444,7 @@
         this.setModel();
         this.$emit(
           'submit',
-          this.mode === 'range' ? this.selectedDates : this.selectedDates[0]
+          this.mode === 'range' ? this.selectedDates : this.selectedDates[0],
         );
         if (close) {
           this.showDatePicker = false;
@@ -1504,7 +1506,7 @@
           const values = this.$attrs.value;
           if (values && Array.isArray(values))
             return this.setModel(
-              values.map((val, i) => (i == inputIndex ? null : val))
+              values.map((val, i) => (i == inputIndex ? null : val)),
             );
         }
         this.setModel('');
@@ -1512,7 +1514,7 @@
       startChangeTime(
         timeIndex: number,
         unit: 'minute' | 'hour',
-        operator: 'add' | 'sub'
+        operator: 'add' | 'sub',
       ) {
         let time = this.selectedTimes[timeIndex];
         if (!time) {
@@ -1541,7 +1543,7 @@
             time.parse(
               time.isSameOrAfter(this.toDate!.clone())
                 ? this.toDate!.clone()
-                : this.fromDate!.clone()
+                : this.fromDate!.clone(),
             );
           } else if (
             this.selectedTimes.length == 2 &&
@@ -1550,7 +1552,7 @@
             time.parse(
               (timeIndex == 0
                 ? this.selectedTimes[1]
-                : this.selectedTimes[0]) as PersianDate
+                : this.selectedTimes[0]) as PersianDate,
             );
           }
           if (!this.isInDisable(time as PersianDate)) {
@@ -1563,7 +1565,7 @@
             if (
               this.autoSubmit &&
               !this.selectedTimes.some((sTime) =>
-                this.isInDisable(sTime as PersianDate)
+                this.isInDisable(sTime as PersianDate),
               )
             )
               this.submitDate(false);
@@ -1595,7 +1597,7 @@
             .fromGregorian(
               (this.type == 'time'
                 ? this.core.toString('YYYY-MM-DD') + ' '
-                : '') + d
+                : '') + d,
             );
           if (Core.isPersianDate(date)) {
             this.selectedDates.push(date.clone());

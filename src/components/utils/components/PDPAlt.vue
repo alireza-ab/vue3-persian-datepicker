@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import { PropType } from 'vue';
-  import { PersianDate } from '../modules/core';
+  import type { PropType } from 'vue';
+  import type { PersianDate } from '../modules/core';
 
   defineProps({
     name: {
