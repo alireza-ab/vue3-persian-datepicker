@@ -6,5 +6,5 @@ export default defineBuildConfig({
     emitCJS: true,
     cjsBridge: true,
   },
-  outDir: 'nuxt',
+  failOnWarn: false,
 });

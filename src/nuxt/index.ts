@@ -29,10 +29,11 @@ export default defineNuxtModule<DatePickerNuxtOptions>({
 
     const { resolve } = createResolver(import.meta.url);
 
-    if (options.PersianDate) addImportsDir(resolve('../src/nuxt/composable'));
+    if (options.PersianDate)
+      addImportsDir(resolve('../../src/nuxt/composable'));
 
     addComponentsDir({
-      path: resolve('../src/components'),
+      path: resolve('../../src/components'),
       pattern: '**/*.vue',
     });
   },
