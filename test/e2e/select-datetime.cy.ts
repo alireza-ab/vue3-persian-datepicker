@@ -15,7 +15,7 @@ describe('select date and time - range', () => {
     hour = 20 - hour;
     if (hour < 0) hour += 24;
     let button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .hour button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .hour button:first-child',
     );
     for (let i = 0; i < hour; i++) {
       button.click();
@@ -24,7 +24,7 @@ describe('select date and time - range', () => {
     minute = 18 - minute;
     if (minute < 0) minute += 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .minute button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .minute button:first-child',
     );
     for (let i = 0; i < minute; i++) {
       button.click();
@@ -33,7 +33,7 @@ describe('select date and time - range', () => {
     hour = 15 - hour;
     hour -= 24;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:last-child .hour button:last-child'
+      '.pdp-time .pdp-moment > div:last-child .hour button:last-child',
     );
     for (let i = 0; i < Math.abs(hour); i++) {
       button.click();
@@ -42,14 +42,14 @@ describe('select date and time - range', () => {
     minute = 12 - minute;
     minute -= 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:last-child .minute button:last-child'
+      '.pdp-time .pdp-moment > div:last-child .minute button:last-child',
     );
     for (let i = 0; i < Math.abs(minute); i++) {
       button.click();
     }
     cy.get('.pdp-input').should(
       'have.value',
-      '1399/06/10 20:18 - 1399/06/15 15:12'
+      '1399/06/10 20:18 - 1399/06/15 15:12',
     );
   });
 
@@ -90,7 +90,7 @@ describe('select date and time - range', () => {
     }
     cy.get('.pdp-input').should(
       'have.value',
-      '1399/06/10 20:18 - 1399/06/15 15:12'
+      '1399/06/10 20:18 - 1399/06/15 15:12',
     );
   });
 
@@ -116,7 +116,7 @@ describe('select date and time - single', () => {
     hour = 20 - hour;
     if (hour < 0) hour += 24;
     let button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .hour button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .hour button:first-child',
     );
     for (let i = 0; i < hour; i++) {
       button.click();
@@ -125,7 +125,7 @@ describe('select date and time - single', () => {
     minute = 18 - minute;
     if (minute < 0) minute += 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .minute button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .minute button:first-child',
     );
     for (let i = 0; i < minute; i++) {
       button.click();
@@ -177,7 +177,7 @@ describe('select date and time with disable date - single', () => {
     hour = 20 - hour;
     if (hour < 0) hour += 24;
     let button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .hour button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .hour button:first-child',
     );
     for (let i = 0; i < hour; i++) {
       button.click();
@@ -186,7 +186,7 @@ describe('select date and time with disable date - single', () => {
     minute = 18 - minute;
     if (minute < 0) minute += 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .minute button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .minute button:first-child',
     );
     for (let i = 0; i < minute; i++) {
       button.click();
@@ -196,7 +196,7 @@ describe('select date and time with disable date - single', () => {
       .and('match', /disabled/);
     cy.get('.pdp-input').should('have.value', '1399/06/05 20:17');
     cy.get(
-      '.pdp-time .pdp-moment > div:first-child .minute button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .minute button:first-child',
     ).click();
     cy.get('.pdp-input').should('have.value', '1399/06/05 20:19');
   });
@@ -260,7 +260,7 @@ describe('select date and time with disable date - range', () => {
     hour = 20 - hour;
     if (hour < 0) hour += 24;
     let button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .hour button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .hour button:first-child',
     );
     for (let i = 0; i < hour; i++) {
       button.click();
@@ -269,7 +269,7 @@ describe('select date and time with disable date - range', () => {
     minute = 18 - minute;
     if (minute < 0) minute += 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .minute button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .minute button:first-child',
     );
     for (let i = 0; i < minute; i++) {
       button.click();
@@ -279,20 +279,20 @@ describe('select date and time with disable date - range', () => {
       .and('match', /disabled/);
     cy.get('.pdp-input').should(
       'contain.value',
-      '1399/06/05 20:17 - 1399/06/06 '
+      '1399/06/05 20:17 - 1399/06/06 ',
     );
     cy.get(
-      '.pdp-time .pdp-moment > div:first-child .minute button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .minute button:first-child',
     ).click();
     cy.get('.pdp-input').should(
       'contain.value',
-      '1399/06/05 20:19 - 1399/06/06 '
+      '1399/06/05 20:19 - 1399/06/06 ',
     );
     hour = new Date(2021, 2, 30, 12).getHours();
     hour = 15 - hour;
     hour -= 24;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:last-child .hour button:last-child'
+      '.pdp-time .pdp-moment > div:last-child .hour button:last-child',
     );
     for (let i = 0; i < Math.abs(hour); i++) {
       button.click();
@@ -301,14 +301,14 @@ describe('select date and time with disable date - range', () => {
     minute = 12 - minute;
     minute -= 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:last-child .minute button:last-child'
+      '.pdp-time .pdp-moment > div:last-child .minute button:last-child',
     );
     for (let i = 0; i < Math.abs(minute); i++) {
       button.click();
     }
     cy.get('.pdp-input').should(
       'have.value',
-      '1399/06/05 20:19 - 1399/06/06 15:12'
+      '1399/06/05 20:19 - 1399/06/06 15:12',
     );
   });
 
@@ -404,7 +404,7 @@ describe('select date and time in en locale - range', () => {
     hour = 20 - hour;
     if (hour < 0) hour += 24;
     let button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .hour button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .hour button:first-child',
     );
     for (let i = 0; i < hour; i++) {
       button.click();
@@ -413,7 +413,7 @@ describe('select date and time in en locale - range', () => {
     minute = 18 - minute;
     if (minute < 0) minute += 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .minute button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .minute button:first-child',
     );
     for (let i = 0; i < minute; i++) {
       button.click();
@@ -422,7 +422,7 @@ describe('select date and time in en locale - range', () => {
     hour = 15 - hour;
     hour -= 24;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:last-child .hour button:last-child'
+      '.pdp-time .pdp-moment > div:last-child .hour button:last-child',
     );
     for (let i = 0; i < Math.abs(hour); i++) {
       button.click();
@@ -431,14 +431,14 @@ describe('select date and time in en locale - range', () => {
     minute = 12 - minute;
     minute -= 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:last-child .minute button:last-child'
+      '.pdp-time .pdp-moment > div:last-child .minute button:last-child',
     );
     for (let i = 0; i < Math.abs(minute); i++) {
       button.click();
     }
     cy.get('.pdp-input').should(
       'have.value',
-      '2020-09-10 20:18 - 2020-09-15 15:12'
+      '2020-09-10 20:18 - 2020-09-15 15:12',
     );
   });
 
@@ -479,7 +479,7 @@ describe('select date and time in en locale - range', () => {
     }
     cy.get('.pdp-input').should(
       'have.value',
-      '2020-09-06 20:18 - 2020-09-15 15:12'
+      '2020-09-06 20:18 - 2020-09-15 15:12',
     );
   });
 
@@ -505,7 +505,7 @@ describe('select date and time in en locale - single', () => {
     hour = 20 - hour;
     if (hour < 0) hour += 24;
     let button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .hour button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .hour button:first-child',
     );
     for (let i = 0; i < hour; i++) {
       button.click();
@@ -514,7 +514,7 @@ describe('select date and time in en locale - single', () => {
     minute = 18 - minute;
     if (minute < 0) minute += 60;
     button = cy.get(
-      '.pdp-time .pdp-moment > div:first-child .minute button:first-child'
+      '.pdp-time .pdp-moment > div:first-child .minute button:first-child',
     );
     for (let i = 0; i < minute; i++) {
       button.click();

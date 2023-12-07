@@ -16,7 +16,7 @@ describe('slots', () => {
         'down-arrow': 'کاهش',
       },
       null,
-      true
+      true,
     );
   });
 

@@ -38,7 +38,7 @@ context('date', () => {
         `${date.clone().startOf('month').toString()} - ${date
           .clone()
           .endOf('month')
-          .toString()}`
+          .toString()}`,
       );
     });
   });
@@ -79,7 +79,7 @@ context('date', () => {
           .clone()
           .calendar('gregorian')
           .endOf('month')
-          .toString()}`
+          .toString()}`,
       );
     });
   });
@@ -109,7 +109,7 @@ context('date', () => {
         .click();
       cy.get('.pdp-input').should(
         'have.value',
-        date.clone().calendar('gregorian').subDay().toString()
+        date.clone().calendar('gregorian').subDay().toString(),
       );
     });
   });
@@ -139,7 +139,7 @@ context('date', () => {
         .click();
       cy.get('.pdp-input').should(
         'have.value',
-        date.clone().addDay().toString()
+        date.clone().addDay().toString(),
       );
     });
   });
@@ -172,7 +172,7 @@ context('datetime', () => {
 
       cy.get('.pdp-input').should(
         'have.value',
-        date.clone().endOf('week').toString('datetime')
+        date.clone().endOf('week').toString('datetime'),
       );
     });
   });
@@ -203,7 +203,7 @@ context('datetime', () => {
 
       cy.get('.pdp-input').should(
         'have.value',
-        date.clone().calendar('gregorian').startOf('week').toString('datetime')
+        date.clone().calendar('gregorian').startOf('week').toString('datetime'),
       );
     });
   });
@@ -247,7 +247,7 @@ context('datetime', () => {
           .calendar('gregorian')
           .subWeek()
           .endOf('week')
-          .toString('datetime')}`
+          .toString('datetime')}`,
       );
     });
   });
@@ -285,7 +285,7 @@ context('datetime', () => {
           .clone()
           .addWeek()
           .endOf('week')
-          .toString('datetime')}`
+          .toString('datetime')}`,
       );
     });
   });
@@ -319,7 +319,7 @@ context('time', () => {
           .clone()
           .subHour()
           .endOf('hour')
-          .toString('time')}`
+          .toString('time')}`,
       );
     });
   });
@@ -351,7 +351,7 @@ context('time', () => {
           .clone()
           .addHour()
           .endOf('hour')
-          .toString('time')}`
+          .toString('time')}`,
       );
     });
   });
@@ -382,7 +382,7 @@ context('time', () => {
 
       cy.get('.pdp-input').should(
         'have.value',
-        date.clone().time('12:00').toString('time')
+        date.clone().time('12:00').toString('time'),
       );
     });
   });
@@ -499,7 +499,7 @@ context('date with disable', () => {
         .click();
       cy.get('.pdp-input').should(
         'have.value',
-        date.clone().endOf('week').toString()
+        date.clone().endOf('week').toString(),
       );
     });
   });
@@ -522,7 +522,7 @@ context('date with disable', () => {
           .clone()
           .addWeek()
           .endOf('week')
-          .toString()}`
+          .toString()}`,
       );
     });
   });

@@ -3,7 +3,7 @@ export { PersianDate };
 
 export type Obj<
   T = unknown,
-  U extends string | number | symbol = string
+  U extends string | number | symbol = string,
 > = Record<U, T>;
 export type StrOrRegex = string | RegExp;
 export type FixedSizeArray<T, N extends number> = {
@@ -14,8 +14,8 @@ export type RecursivePartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
     ? RecursivePartial<U>[]
     : T[P] extends Record<string, unknown>
-    ? RecursivePartial<T[P]>
-    : T[P];
+      ? RecursivePartial<T[P]>
+      : T[P];
 };
 
 export type Calendar = 'jalali' | 'gregorian';

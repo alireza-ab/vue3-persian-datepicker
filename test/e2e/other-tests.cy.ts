@@ -55,7 +55,7 @@ describe('disable dates and change locale', () => {
     cy.changeProps(
       { locale: 'fa,en', disable: ['1399/10/5', '1399/9/20', '1399/7/1'] },
       null,
-      true
+      true,
     );
   });
   it('test', () => {
@@ -235,7 +235,7 @@ describe('model with value', () => {
       cy.get('.pdp-moment div:first-child .hour').should('contain.text', '20');
       cy.get('.pdp-moment div:first-child .minute').should(
         'contain.text',
-        '18'
+        '18',
       );
       cy.get('.pdp-moment div:last-child .hour').should('contain.text', '10');
       cy.get('.pdp-moment div:last-child .minute').should('contain.text', '20');
@@ -266,7 +266,7 @@ describe('model with value', () => {
       cy.get('.pdp-moment div:first-child .hour').should('contain.text', '10');
       cy.get('.pdp-moment div:first-child .minute').should(
         'contain.text',
-        '20'
+        '20',
       );
       cy.get('.pdp-moment div:last-child .hour').should('contain.text', '20');
       cy.get('.pdp-moment div:last-child .minute').should('contain.text', '18');

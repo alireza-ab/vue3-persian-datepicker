@@ -119,7 +119,7 @@ export const Core = {
       )
         newObject[key] = this.mergeObject(
           original[key] as Obj,
-          changed[key] as Obj
+          changed[key] as Obj,
         );
       else newObject[key] = changed[key];
     }
@@ -183,7 +183,7 @@ export const Core = {
   },
   getLastUnit: function (
     date: string,
-    type: 'time' | 'datetime' | 'date'
+    type: 'time' | 'datetime' | 'date',
   ): Units {
     const unitsCount =
       date.split(/[/ \-.,:\\]/).length + (type == 'time' ? 3 : 0);
@@ -207,7 +207,7 @@ export const Core = {
   getShortcuts(
     date: PersianDate,
     part: string,
-    translate: Record<string, string>
+    translate: Record<string, string>,
   ): Shortcuts {
     const c = (): PersianDate => date.clone();
     switch (part) {

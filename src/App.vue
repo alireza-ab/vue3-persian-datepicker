@@ -1,9 +1,5 @@
 <script lang="ts" setup>
   import DatePicker from './components/DatePicker.vue';
-
-  const focus = () => {
-    console.log('focus');
-  };
 </script>
 
 <template>

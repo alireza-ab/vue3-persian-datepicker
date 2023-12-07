@@ -12,7 +12,7 @@ describe('arrow keys', () => {
     cy.get('.pdp-input').type('{uparrow}');
     cy.get('[data-column=1] .hover').should('contain.text', '24');
     cy.get('.pdp-input').type(
-      '{rightarrow}{rightarrow}{rightarrow}{rightarrow}'
+      '{rightarrow}{rightarrow}{rightarrow}{rightarrow}',
     );
     cy.get('[data-column=1] .hover').should('contain.text', '20');
     cy.get('.pdp-input').type('{uparrow}');
@@ -32,7 +32,7 @@ describe('arrow keys', () => {
     cy.get('.pdp-input').type('{leftarrow}{leftarrow}');
     cy.get('[data-column=1] .hover').should('contain.text', '1');
     cy.get('.pdp-input').type(
-      '{uparrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}'
+      '{uparrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}',
     );
     cy.get('[data-column=0] .hover').should('contain.text', '19');
     cy.get('.pdp-input').type('{uparrow}{uparrow}{uparrow}');
@@ -71,7 +71,7 @@ describe('arrow keys', () => {
     cy.get('.end-range').should('contain.text', '15');
     cy.get('.pdp-input')
       .type(
-        '{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{enter}'
+        '{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{enter}',
       )
       .get('.start-range')
       .should('contain.text', '26');
@@ -113,7 +113,7 @@ describe('arrow keys in "en" locale', () => {
     cy.get('.pdp-input').type('{rightarrow}{rightarrow}');
     cy.get('[data-column=0] .hover').should('contain.text', '31');
     cy.get('.pdp-input').type(
-      '{uparrow}{leftarrow}{leftarrow}{leftarrow}{leftarrow}{leftarrow}{leftarrow}'
+      '{uparrow}{leftarrow}{leftarrow}{leftarrow}{leftarrow}{leftarrow}{leftarrow}',
     );
     cy.get('[data-column=0] .hover').should('contain.text', '18');
     cy.get('.pdp-input').type('{uparrow}{uparrow}{uparrow}');
@@ -155,14 +155,14 @@ describe('arrow keys in "en" locale', () => {
       .focus();
     cy.get('.start-range').should('contain.text', '13');
     cy.get('.pdp-input').type(
-      '{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{enter}'
+      '{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{enter}',
     );
     cy.get('.start-range').should('contain.text', '25');
     cy.get('.pdp-arrow').first().click().click();
     cy.get('.pdp-input')
       .type(
         '{downarrow}{downarrow}{downarrow}{downarrow}{rightarrow}{rightarrow}{enter}',
-        { force: true }
+        { force: true },
       )
       .should('have.value', '2020-04-12 - 2020-05-25')
       .focus()

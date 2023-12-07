@@ -49,7 +49,7 @@ describe('from and to props', () => {
         .selectTime(14, 10);
       cy.get('.pdp-input').should(
         'have.value',
-        '1399/06/01 14:10 - 1399/06/31 20:20'
+        '1399/06/01 14:10 - 1399/06/31 20:20',
       );
     });
 
@@ -97,7 +97,7 @@ describe('from and to props', () => {
     it('with arrow keys', () => {
       cy.get('.pdp-input')
         .type(
-          '{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}'
+          '{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}{downarrow}',
         )
         .type('{leftarrow}{leftarrow}{leftarrow}');
       cy.get('.hover').should('contain.text', '31');
@@ -131,7 +131,7 @@ describe('locale prop', () => {
       cy.get('.pdp-header .top button').click();
       cy.get('.pdp-header .top div').should(
         'contain.text',
-        'Gregorian Calendar'
+        'Gregorian Calendar',
       );
     });
   });
@@ -145,7 +145,7 @@ describe('locale prop', () => {
       cy.get('.pdp-input').focus();
       cy.get('.pdp-header .top div').should(
         'contain.text',
-        'Gregorian Calendar'
+        'Gregorian Calendar',
       );
       cy.get('.pdp-header .top button').click();
       cy.get('.pdp-header .top div').should('contain.text', 'تقویم شمسی');
@@ -207,7 +207,7 @@ describe('localeConfig prop', () => {
       cy.get('.pdp-input').should('have.value', '2020 - 2020');
       cy.get('.pdp-header .top div').should(
         'contain.text',
-        'Gregorian Calendar'
+        'Gregorian Calendar',
       );
       cy.get('.pdp-header .top button').should('contain.text', 'فارسی');
     });
@@ -280,7 +280,7 @@ describe('formats', () => {
       cy.selectRangeDate();
       cy.get('.show').should(
         'have.text',
-        'date/time is: [\n  "2020-08-31",\n  "2020-09-05"\n]'
+        'date/time is: [\n  "2020-08-31",\n  "2020-09-05"\n]',
       );
     });
 
@@ -309,7 +309,7 @@ describe('formats', () => {
       cy.selectRangeDate();
       cy.get('.show').should(
         'have.text',
-        'date/time is: [\n  "20-8-31",\n  "20-9-5"\n]'
+        'date/time is: [\n  "20-8-31",\n  "20-9-5"\n]',
       );
     });
 
@@ -878,7 +878,7 @@ describe('disable prop', () => {
       cy.get('.pdp-day[value="15"]').should(
         'have.attr',
         'class',
-        'pdp-day disabled'
+        'pdp-day disabled',
       );
     });
   });
@@ -1099,7 +1099,7 @@ describe('change styles', () => {
       cy.get('.pdp-submit').should(
         'have.css',
         'background-color',
-        'rgb(255, 0, 0)'
+        'rgb(255, 0, 0)',
       );
     });
   });
@@ -1114,7 +1114,7 @@ describe('change styles', () => {
       cy.get('.pdp-submit').should(
         'have.css',
         'background-color',
-        'rgb(199, 0, 76)'
+        'rgb(199, 0, 76)',
       );
     });
   });
