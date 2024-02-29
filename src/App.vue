@@ -1,9 +1,18 @@
 <script lang="ts" setup>
+  import { reactive } from 'vue';
   import DatePicker from './components/DatePicker.vue';
+  const state = reactive({
+    myDate: '',
+  });
+
+  setTimeout(() => {
+    state.myDate = '2022-10-09';
+  }, 3000);
 </script>
 
 <template>
-  <DatePicker alt-name="rest"></DatePicker>
+  <p>{{ state.myDate }}</p>
+  <DatePicker v-model="state.myDate" alt-name="rest" mode="single"></DatePicker>
 </template>
 
 <style>
