@@ -401,6 +401,9 @@
        * 		default value in "datetime" type is "YYYY-MM-DD HH:mm"
        * 		default value in "time" type is "HH:mm"
        */
+      modelValue: {
+        type: String,
+      },
       format: {
         type: String,
       },
@@ -911,6 +914,12 @@
       },
     },
     watch: {
+      modelValue: {
+        handler: function (val) {
+          this.$emit('update:modelValue', val);
+          this.setDate(val);
+        },
+      },
       show: {
         handler: function (val) {
           this.showDatePicker = val;
@@ -985,7 +994,7 @@
         .calendar(calendar);
       this.core.calendar(calendar);
 
-      const val = this.$attrs.modelValue as string | string[];
+      const val = this.modelValue as string | string[];
       if (val) {
         this.setDate(val);
       } else {
