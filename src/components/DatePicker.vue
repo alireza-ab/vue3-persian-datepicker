@@ -52,7 +52,7 @@
       v-if="attrs.alt.name"
       :name="attrs.alt.name"
       :format="formats.alt"
-      :dates="selectedDates"
+      :dates="submitedValue"
     />
     <div v-if="showDatePicker">
       <div class="pdp-overlay" @click="showDatePicker = false"></div>
@@ -658,6 +658,7 @@
         langs: Core.langs,
         currentLocale: this.locale.split(',')[0],
         interval: null as NodeJS.Timeout | null,
+        submitedValue: [] as PersianDate[],
       };
     },
     computed: {
@@ -1441,6 +1442,8 @@
         });
         if (this.dualInput) this.displayValue = displayDate;
         else this.displayValue[0] = displayDate.join(' - ');
+
+        this.submitedValue = this.selectedDates.slice();
         this.setModel();
         this.$emit(
           'submit',
