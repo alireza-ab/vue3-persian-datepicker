@@ -11,7 +11,8 @@
   "exports": {
     ".": {
       "import": "./dist/index-es.js",
-      "require": "./dist/index-umd.js"
+      "require": "./dist/index-umd.js",
+      "types": "./dist/DatePicker.vue.d.ts"
     },
     "./nuxt": {
       "import": "./dist/nuxt/index.mjs",
@@ -19,7 +20,6 @@
     }
   },
   "type": "module",
-  "types": "./dist/DatePicker.vue.d.ts",
   "scripts": {
     "dev": "vite",
     "build:lib": "rollup -c",
