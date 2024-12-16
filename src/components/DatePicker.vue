@@ -1618,5 +1618,5 @@
 </script>
 
 <style lang="scss">
-  @import './assets/sass/app.scss';
+  @use '_variable';
 </style>
