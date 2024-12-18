@@ -37,4 +37,11 @@ export default defineConfig({
     //   plugins: [common({}), resolve({})],
     // },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
+    },
+  },
 });
