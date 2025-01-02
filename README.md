@@ -26,7 +26,7 @@ For full documentation and examples, visit [https://alireza-ab.ir/datepicker](ht
 ### Install
 
 ```shell
-yarn add @alireza-ab/vue3-persian-datepicker
+pnpm add @alireza-ab/vue3-persian-datepicker
 ```
 
 or
