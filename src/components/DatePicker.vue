@@ -657,7 +657,7 @@
         documentWidth: isClient ? window.innerWidth : Infinity,
         langs: Core.langs,
         currentLocale: this.locale.split(',')[0],
-        interval: null as NodeJS.Timeout | null,
+        interval: null as ReturnType<typeof setInterval> | null,
         submitedValue: [] as PersianDate[],
       };
     },
@@ -1290,7 +1290,7 @@
             ['ArrowLeft', 'ArrowRight'].includes(e.key)
           )
             numberOfDay = -numberOfDay;
-          /* eslint-disable no-undef */
+
           let focusedDay: HTMLElement | NodeListOf<HTMLElement> =
             document.querySelectorAll('.pdp .pdp-day.hover');
           if (!focusedDay.length) {

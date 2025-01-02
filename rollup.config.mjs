@@ -17,6 +17,7 @@ export default {
         compilerOptions: {
           declaration: false,
         },
+        exclude: ['src/nuxt'],
       },
     }),
     commonjs(),
