@@ -1,4 +1,4 @@
-@import '_variable';
+@use '_variable';
 
 @mixin little-flag {
   &:after {
@@ -12,7 +12,7 @@
     //--- left of datepicker ---//
     /* left: 1.2rem; */
     border: solid transparent;
-    border-bottom-color: $background;
+    border-bottom-color: variable.$background;
     border-bottom-color: var(--background);
     border-width: 0.4rem;
   }
@@ -26,10 +26,10 @@
     width: 0.4rem;
   }
   &::-webkit-scrollbar-thumb {
-    border-radius: $radius;
+    border-radius: variable.$radius;
     border-radius: var(--radius);
     border: 0.1rem solid white; /* should match background, can't be transparent */
-    background: $border-color;
+    background: variable.$border-color;
     background: var(--border-color);
   }
 }
@@ -98,37 +98,37 @@
   position: relative;
 
   &:not(.pdp-range) .pdp-day.start-range {
-    border-radius: $radius !important;
+    border-radius: variable.$radius !important;
     border-radius: var(--radius) !important;
   }
 
   &.pdp-range .pdp-picker.rtl .pdp-day.start-range {
-    border-radius: 0 $radius $radius 0 !important;
+    border-radius: 0 variable.$radius variable.$radius 0 !important;
     border-radius: 0 var(--radius) var(--radius) 0 !important;
   }
 
   &.pdp-range .pdp-picker.rtl .pdp-day.end-range {
-    border-radius: $radius 0 0 $radius !important;
+    border-radius: variable.$radius 0 0 variable.$radius !important;
     border-radius: var(--radius) 0 0 var(--radius) !important;
   }
 
   &.pdp-range .pdp-picker.rtl .pdp-day.end-range.start-range {
-    border-radius: $radius !important;
+    border-radius: variable.$radius !important;
     border-radius: var(--radius) !important;
   }
 
   &.pdp-range .pdp-picker.ltr .pdp-day.start-range {
-    border-radius: $radius 0 0 $radius !important;
+    border-radius: variable.$radius 0 0 variable.$radius !important;
     border-radius: var(--radius) 0 0 var(--radius) !important;
   }
 
   &.pdp-range .pdp-picker.ltr .pdp-day.end-range {
-    border-radius: 0 $radius $radius 0 !important;
+    border-radius: 0 variable.$radius variable.$radius 0 !important;
     border-radius: 0 var(--radius) var(--radius) 0 !important;
   }
 
   &.pdp-range .pdp-picker.ltr .pdp-day.end-range.start-range {
-    border-radius: $radius !important;
+    border-radius: variable.$radius !important;
     border-radius: var(--radius) !important;
   }
 
@@ -139,17 +139,17 @@
     .pdp-group {
       :first-child:not(.pdp-inside),
       .pdp-inside:first-child + input {
-        border-top-right-radius: $radius;
+        border-top-right-radius: variable.$radius;
         border-top-right-radius: var(--radius);
-        border-bottom-right-radius: $radius;
+        border-bottom-right-radius: variable.$radius;
         border-bottom-right-radius: var(--radius);
         margin-left: -1px;
       }
 
       input:last-of-type {
-        border-top-left-radius: $radius;
+        border-top-left-radius: variable.$radius;
         border-top-left-radius: var(--radius);
-        border-bottom-left-radius: $radius;
+        border-bottom-left-radius: variable.$radius;
         border-bottom-left-radius: var(--radius);
       }
 
@@ -183,17 +183,17 @@
     .pdp-group {
       :first-child:not(.pdp-inside),
       .pdp-inside:first-child + input {
-        border-top-left-radius: $radius;
+        border-top-left-radius: variable.$radius;
         border-top-left-radius: var(--radius);
-        border-bottom-left-radius: $radius;
+        border-bottom-left-radius: variable.$radius;
         border-bottom-left-radius: var(--radius);
         margin-right: -1px;
       }
 
       input:last-of-type {
-        border-top-right-radius: $radius;
+        border-top-right-radius: variable.$radius;
         border-top-right-radius: var(--radius);
-        border-bottom-right-radius: $radius;
+        border-bottom-right-radius: variable.$radius;
         border-bottom-right-radius: var(--radius);
         font-family: sans-serif;
       }
@@ -289,7 +289,7 @@
       font-weight: 400;
       line-height: 1.5;
       background-clip: padding-box;
-      border: 1px solid $border-color;
+      border: 1px solid variable.$border-color;
       border: 1px solid var(--border-color);
       transition:
         border-color 0.15s ease-in-out,
@@ -300,7 +300,7 @@
 
       &.pdp-focus {
         outline: none;
-        border-bottom: 2px solid $primary-color;
+        border-bottom: 2px solid variable.$primary-color;
         border-bottom: 2px solid var(--primary-color);
       }
     }
@@ -309,11 +309,11 @@
       padding: 0.375rem 0.75rem;
       line-height: 1.5;
       font-size: 1rem;
-      color: $text-color;
+      color: variable.$text-color;
       color: var(--text-color);
-      background: $icon-background;
+      background: variable.$icon-background;
       background: var(--icon-background);
-      border: 1px solid $border-color;
+      border: 1px solid variable.$border-color;
       border: 1px solid var(--border-color);
       max-height: calc(1.5em + 0.75rem + 2px);
 
@@ -349,24 +349,24 @@
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: $z-index;
+    z-index: variable.$z-index;
     z-index: var(--z-index);
-    background: $overlay-color;
+    background: variable.$overlay-color;
     background: var(--overlay-color);
   }
 
   .pdp-picker {
     display: flex;
     position: absolute;
-    color: $text-color;
+    color: variable.$text-color;
     color: var(--text-color);
-    background: $background;
+    background: variable.$background;
     background: var(--background);
-    box-shadow: $main-box-shadow;
+    box-shadow: variable.$main-box-shadow;
     box-shadow: var(--main-box-shadow);
-    z-index: $z-index + 1;
+    z-index: variable.$z-index + 1;
     z-index: calc(var(--z-index) + 1);
-    border-radius: $radius;
+    border-radius: variable.$radius;
     border-radius: var(--radius);
     transition: all 1s ease;
     margin-top: 0.5rem;
@@ -395,7 +395,7 @@
 
       .pdp-shortcut {
         border-right: unset;
-        border-left: 1px solid $border-color;
+        border-left: 1px solid variable.$border-color;
         border-left: 1px solid var(--border-color);
       }
     }
@@ -481,9 +481,9 @@
         flex: 30% 0;
 
         &:not(.disabled):hover {
-          border-radius: $radius;
+          border-radius: variable.$radius;
           border-radius: var(--radius);
-          border: 2px solid $primary-color;
+          border: 2px solid variable.$primary-color;
           border: 2px solid var(--primary-color);
         }
 
@@ -491,18 +491,18 @@
           text-shadow: unset;
           box-shadow: unset;
           cursor: default !important;
-          opacity: $disabled-opacity;
+          opacity: variable.$disabled-opacity;
           opacity: var(--disabled-opacity);
         }
 
         &.selected {
-          border: 2px solid $primary-color;
+          border: 2px solid variable.$primary-color;
           border: 2px solid var(--primary-color);
-          border-radius: $radius;
+          border-radius: variable.$radius;
           border-radius: var(--radius);
-          background: $primary-color !important;
+          background: variable.$primary-color !important;
           background: var(--primary-color) !important;
-          color: $background;
+          color: variable.$background;
           color: var(--background);
         }
       }
@@ -512,7 +512,7 @@
 
     .pdp-header {
       & > div:first-child {
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid variable.$border-color;
         border-bottom: 1px solid var(--border-color);
         margin-bottom: 0.5rem;
       }
@@ -528,7 +528,7 @@
           border: 0;
           background: inherit;
           cursor: pointer;
-          color: $primary-color;
+          color: variable.$primary-color;
           color: var(--primary-color);
           padding: 0 0.5rem;
         }
@@ -548,7 +548,7 @@
 
           .pdp-month,
           .pdp-year {
-            color: $primary-color;
+            color: variable.$primary-color;
             color: var(--primary-color);
             font-size: 1rem;
           }
@@ -565,12 +565,12 @@
         }
 
         .pdp-arrow.disabled {
-          opacity: $disabled-opacity;
+          opacity: variable.$disabled-opacity;
           opacity: var(--disabled-opacity);
         }
 
         .pdp-arrow:not(.disabled):hover {
-          opacity: $disabled-opacity;
+          opacity: variable.$disabled-opacity;
           opacity: var(--disabled-opacity);
         }
       }
@@ -593,11 +593,11 @@
             justify-content: space-around;
 
             .pdp-weekday {
-              width: $day-dimensions;
+              width: variable.$day-dimensions;
               width: var(--day-dimensions);
-              height: $day-dimensions;
+              height: variable.$day-dimensions;
               height: var(--day-dimensions);
-              line-height: $day-dimensions;
+              line-height: variable.$day-dimensions;
               line-height: var(--day-dimensions);
               font-size: 0.8rem;
               text-align: center;
@@ -613,11 +613,11 @@
               align-items: center;
               margin: 0.1rem 0;
               font-size: 0.8rem;
-              width: $day-dimensions;
+              width: variable.$day-dimensions;
               width: var(--day-dimensions);
-              height: $day-dimensions;
+              height: variable.$day-dimensions;
               height: var(--day-dimensions);
-              border-radius: $radius;
+              border-radius: variable.$radius;
               border-radius: var(--radius);
               padding: 0;
               cursor: pointer;
@@ -626,7 +626,7 @@
               contain: content;
 
               &.friday {
-                color: $primary-color;
+                color: variable.$primary-color;
                 color: var(--primary-color);
               }
 
@@ -636,9 +636,9 @@
 
               &.start-range,
               &.end-range {
-                background: $primary-color;
+                background: variable.$primary-color;
                 background: var(--primary-color);
-                color: $background;
+                color: variable.$background;
                 color: var(--background);
               }
 
@@ -647,34 +647,34 @@
                 text-shadow: unset;
                 cursor: default !important;
                 border-color: transparent;
-                opacity: $disabled-opacity;
+                opacity: variable.$disabled-opacity;
                 opacity: var(--disabled-opacity);
               }
 
               &.hover {
-                background: $secondary-color !important;
+                background: variable.$secondary-color !important;
                 background: var(--secondary-color) !important;
-                color: $hover-color;
+                color: variable.$hover-color;
                 color: var(--hover-color);
               }
 
               &.in-range {
-                background: $in-range-background;
+                background: variable.$in-range-background;
                 background: var(--in-range-background);
-                color: $hover-color;
+                color: variable.$hover-color;
                 color: var(--hover-color);
                 border-radius: 0 !important;
               }
 
               &:not(.disabled):hover,
               &.today {
-                border: 2px solid $primary-color;
+                border: 2px solid variable.$primary-color;
                 border: 2px solid var(--primary-color);
               }
 
               &.tada {
                 animation: tada 1s;
-                background: $secondary-color;
+                background: variable.$secondary-color;
                 background: var(--secondary-color);
                 box-shadow: inset 0 4px 9px rgba(0, 0, 0, 0.24);
                 color: #000;
@@ -707,7 +707,7 @@
 
         .pdp-moment {
           margin-bottom: 1rem;
-          font-size: calc(2rem * $time-scale);
+          font-size: calc(2rem * variable.$time-scale);
           font-size: calc(2rem * var(--time-scale));
           display: flex;
           justify-content: space-around;
@@ -726,7 +726,7 @@
             padding: 1rem 0;
 
             &.disabled {
-              opacity: $disabled-opacity;
+              opacity: variable.$disabled-opacity;
               opacity: var(--disabled-opacity);
             }
 
@@ -742,7 +742,7 @@
                 cursor: pointer;
 
                 svg {
-                  width: calc(8px * $time-scale);
+                  width: calc(8px * variable.$time-scale);
                   width: calc(8px * var(--time-scale));
                 }
               }
@@ -758,7 +758,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid $border-color;
+      border-top: 1px solid variable.$border-color;
       border-top: 1px solid var(--border-color);
       padding: 0.3rem;
 
@@ -768,13 +768,13 @@
         padding: 0.25rem 0.5rem;
         margin: 0 0.3rem;
         line-height: 1.5;
-        color: $background;
+        color: variable.$background;
         color: var(--background);
         text-decoration: none;
         border: none;
-        border-radius: $radius;
+        border-radius: variable.$radius;
         border-radius: var(--radius);
-        background: $primary-color;
+        background: variable.$primary-color;
         background: var(--primary-color);
         cursor: pointer;
 
@@ -795,7 +795,7 @@
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      border-right: 1px solid $border-color;
+      border-right: 1px solid variable.$border-color;
       border-right: 1px solid var(--border-color);
 
       li {
@@ -803,22 +803,22 @@
         padding: 0.5rem 1rem;
         text-align: center;
         cursor: pointer;
-        border-radius: $radius;
+        border-radius: variable.$radius;
         border-radius: var(--radius);
         margin: 0.25rem 0;
-        color: $hover-color;
+        color: variable.$hover-color;
         color: var(--hover-color);
         font-weight: 500;
 
         &:hover {
-          background: $in-range-background;
+          background: variable.$in-range-background;
           background: var(--in-range-background);
         }
 
         &.selected {
-          background: $primary-color;
+          background: variable.$primary-color;
           background: var(--primary-color);
-          color: $background;
+          color: variable.$background;
           color: var(--background);
         }
       }
