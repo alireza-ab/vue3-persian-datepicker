@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 before(() => {
   cy.changeProps(null, null, true);

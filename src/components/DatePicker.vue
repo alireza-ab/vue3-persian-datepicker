@@ -1291,6 +1291,7 @@
           )
             numberOfDay = -numberOfDay;
 
+          // eslint-disable-next-line no-undef
           let focusedDay: HTMLElement | NodeListOf<HTMLElement> =
             document.querySelectorAll('.pdp .pdp-day.hover');
           if (!focusedDay.length) {

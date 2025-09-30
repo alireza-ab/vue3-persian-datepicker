@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 const focusEvent = () => {
   cy.get('.pdp-input').focus();

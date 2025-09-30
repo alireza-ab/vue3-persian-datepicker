@@ -3,8 +3,9 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginVue from 'eslint-plugin-vue';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 
-export default typescriptEslint.config(
+export default defineConfig(
   { ignores: ['*.d.ts', '**/coverage', '**/dist'] },
   {
     extends: [
