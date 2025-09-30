@@ -14,7 +14,7 @@ export default defineNuxtModule<DatePickerNuxtOptions>({
     name: '@alireza-ab/vue3-persian-datepicker',
     configKey: 'datepicker',
     compatibility: {
-      nuxt: '^3.0.0-rc',
+      nuxt: '^3.0.0 || ^4.0.0',
     },
   },
   defaults: {
